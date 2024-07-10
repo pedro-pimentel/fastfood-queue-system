@@ -1,0 +1,12 @@
+.telao-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.painel-senhas {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+}
