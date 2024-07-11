@@ -1,20 +1,35 @@
 .fila-container {
-  /* margin: 20px; */
   padding: 10px;
-  /* border: 1px solid #ddd; */
-  border-radius: 5px;
+  border-radius: 3px;
   width: 45%;
-  background: #FDBF1E;
+  background:#FDBF1E;
   text-align: center;
 }
 
 .formulario-senha {
   margin: 10px;
-  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
-  width: 45%;
+  width: 54%;
   background: #fff;
+  text-align: center;
+}
+
+.formulario-senha label{
+  margin: 25px 15px 25px 25px;
+  font-size: 25px;
+}
+
+.formulario-senha select{
+  margin: 25px 25px 25px 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.formulario-senha button{
+  margin: 25px 25px 25px 10px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .fila-container h2 {
@@ -48,4 +63,18 @@
 .senha.destaque {
   background-color: #17b978;
   font-weight: bold;
+}
+
+.remove-button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  background-color: #c82333;
 }

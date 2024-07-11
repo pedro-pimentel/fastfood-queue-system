@@ -11,9 +11,10 @@ interface FilaSenhasProps {
   titulo: string;
   senhas: Senha[];
   ultimaSenhaChamada: string | null;
+  onRemoverUltimaSenhaChamada?: () => void; // Torna a propriedade opcional
 }
 
-const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaChamada }) => {
+const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaChamada, onRemoverUltimaSenhaChamada }) => {
   const sortedSenhas = [...senhas].sort((a, b) => {
     const aId = typeof a.id === 'string' ? parseInt(a.id.split('-')[1]) : 0;
     const bId = typeof b.id === 'string' ? parseInt(b.id.split('-')[1]) : 0;
@@ -30,6 +31,9 @@ const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaCham
           </li>
         ))}
       </ul>
+      {ultimaSenhaChamada && onRemoverUltimaSenhaChamada && (
+        <button className="remove-button" onClick={onRemoverUltimaSenhaChamada}>Remover Última Senha Chamada</button>
+      )}
     </div>
   );
 };

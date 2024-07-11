@@ -58,6 +58,18 @@ const Operador: React.FC = () => {
     }
   };
 
+  const removerUltimaSenhaChamada = (tipo: string) => {
+    if (tipo === 'salao' && ultimaSenhaChamadaSalao) {
+      setSenhasSalao(senhasSalao.filter(senha => senha.id !== ultimaSenhaChamadaSalao));
+      setUltimaSenhaChamadaSalao(null);
+      localStorage.removeItem('ultimaSenhaChamadaSalao');
+    } else if (tipo === 'retirada' && ultimaSenhaChamadaRetirada) {
+      setSenhasRetirada(senhasRetirada.filter(senha => senha.id !== ultimaSenhaChamadaRetirada));
+      setUltimaSenhaChamadaRetirada(null);
+      localStorage.removeItem('ultimaSenhaChamadaRetirada');
+    }
+  };
+
   const resetarFilas = () => {
     setSenhasSalao([]);
     setSenhasRetirada([]);
@@ -76,8 +88,8 @@ const Operador: React.FC = () => {
       <FormularioSenha onAddSenha={addSenha} />
       <button className="reset-button" onClick={resetarFilas}>Resetar Filas</button>
       <div className="painel-senhas">
-        <FilaSenhas titulo="Pedidos Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} />
-        <FilaSenhas titulo="Pedidos Online" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} />
+        <FilaSenhas titulo="Pedidos Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('salao')} />
+        <FilaSenhas titulo="Pedidos Online" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('retirada')} />
       </div>
     </div>
   );
