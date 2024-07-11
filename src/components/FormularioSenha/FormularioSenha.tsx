@@ -19,7 +19,7 @@ const FormularioSenha: React.FC<FormularioSenhaProps> = ({ onAddSenha }) => {
         Tipo de Atendimento:
         <select value={tipo} onChange={(e) => setTipo(e.target.value)}>
           <option value="salao">Salão</option>
-          <option value="retirada">Retirada</option>
+          <option value="retirada">Online</option>
         </select>
       </label>
       <button type="submit">Adicionar Senha</button>
