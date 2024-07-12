@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import FilaSenhas from '../components/FilaSenhas/FilaSenhas';
 import './Telao.css';
 
@@ -14,21 +14,21 @@ const Telao: React.FC = () => {
   const [ultimaSenhaChamadaSalao, setUltimaSenhaChamadaSalao] = useState<string | null>(null);
   const [ultimaSenhaChamadaRetirada, setUltimaSenhaChamadaRetirada] = useState<string | null>(null);
 
+  const updateStateFromLocalStorage = useCallback(() => {
+    const storedSenhasSalao: Senha[] = JSON.parse(localStorage.getItem('senhasSalao') || '[]');
+    const storedSenhasRetirada: Senha[] = JSON.parse(localStorage.getItem('senhasRetirada') || '[]');
+    setSenhasSalao(storedSenhasSalao);
+    setSenhasRetirada(storedSenhasRetirada);
+
+    // Encontrar a última senha chamada em cada fila
+    const lastChamadaSalao = localStorage.getItem('ultimaSenhaChamadaSalao');
+    setUltimaSenhaChamadaSalao(lastChamadaSalao ? lastChamadaSalao : null);
+
+    const lastChamadaRetirada = localStorage.getItem('ultimaSenhaChamadaRetirada');
+    setUltimaSenhaChamadaRetirada(lastChamadaRetirada ? lastChamadaRetirada : null);
+  }, []);
+
   useEffect(() => {
-    const updateStateFromLocalStorage = () => {
-      const storedSenhasSalao: Senha[] = JSON.parse(localStorage.getItem('senhasSalao') || '[]');
-      const storedSenhasRetirada: Senha[] = JSON.parse(localStorage.getItem('senhasRetirada') || '[]');
-      setSenhasSalao(storedSenhasSalao);
-      setSenhasRetirada(storedSenhasRetirada);
-
-      // Encontrar a última senha chamada em cada fila
-      const lastChamadaSalao = localStorage.getItem('ultimaSenhaChamadaSalao');
-      setUltimaSenhaChamadaSalao(lastChamadaSalao ? lastChamadaSalao : null);
-
-      const lastChamadaRetirada = localStorage.getItem('ultimaSenhaChamadaRetirada');
-      setUltimaSenhaChamadaRetirada(lastChamadaRetirada ? lastChamadaRetirada : null);
-    };
-
     // Atualiza o estado inicial
     updateStateFromLocalStorage();
 
@@ -39,7 +39,7 @@ const Telao: React.FC = () => {
     return () => {
       window.removeEventListener('storage', updateStateFromLocalStorage);
     };
-  }, []);
+  }, [updateStateFromLocalStorage]);
 
   return (
     <div className="telao-container">

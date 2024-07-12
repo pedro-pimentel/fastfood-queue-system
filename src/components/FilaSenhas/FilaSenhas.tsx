@@ -11,15 +11,17 @@ interface FilaSenhasProps {
   titulo: string;
   senhas: Senha[];
   ultimaSenhaChamada: string | null;
-  onRemoverUltimaSenhaChamada?: () => void; // Torna a propriedade opcional
+  onRemoverUltimaSenhaChamada?: () => void;
 }
 
-const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaChamada, onRemoverUltimaSenhaChamada }) => {
-  const sortedSenhas = [...senhas].sort((a, b) => {
-    const aId = typeof a.id === 'string' ? parseInt(a.id.split('-')[1]) : 0;
-    const bId = typeof b.id === 'string' ? parseInt(b.id.split('-')[1]) : 0;
-    return bId - aId;
-  });
+const FilaSenhas: React.FC<FilaSenhasProps> = React.memo(({ titulo, senhas, ultimaSenhaChamada, onRemoverUltimaSenhaChamada }) => {
+  const sortedSenhas = React.useMemo(() => {
+    return [...senhas].sort((a, b) => {
+      const aId = parseInt(a.id.split('-')[1], 10) || 0;
+      const bId = parseInt(b.id.split('-')[1], 10) || 0;
+      return bId - aId;
+    });
+  }, [senhas]);
 
   return (
     <div className="fila-container">
@@ -32,10 +34,10 @@ const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaCham
         ))}
       </ul>
       {ultimaSenhaChamada && onRemoverUltimaSenhaChamada && (
-        <button className="remove-button" onClick={onRemoverUltimaSenhaChamada}>Remover Última Senha Chamada</button>
+        <button className="remove-button" onClick={onRemoverUltimaSenhaChamada} aria-label="Remover Última Senha Chamada">Remover Última Senha Chamada</button>
       )}
     </div>
   );
-};
+});
 
 export default FilaSenhas;

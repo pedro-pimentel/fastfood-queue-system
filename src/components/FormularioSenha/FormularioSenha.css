@@ -9,4 +9,9 @@
   .formulario-senha select {
     margin-right: 10px;
   }
+
+  .formulario-senha label input{
+    margin: 25px 25px 25px 0px;
+    font-size: 20px;
+  }
   
