@@ -44,8 +44,8 @@ const Telao: React.FC = () => {
   return (
     <div className="telao-container">
       <div className="painel-senhas">
-        <FilaSenhas titulo="Fila Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} />
-        <FilaSenhas titulo="Fila Retirada" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} />
+        <FilaSenhas titulo="Pedidos Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} />
+        <FilaSenhas titulo="Pedidos Online" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} />
       </div>
     </div>
   );
