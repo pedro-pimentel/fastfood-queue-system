@@ -10,7 +10,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/operador" element={<Operador />} />
         <Route path="/telao" element={<Telao />} />
-        <Route path="*" element={<Navigate to="/operador" />} />
+        <Route path="/" element={<Navigate to="/operador" />} />
       </Routes>
     </Router>
   );
