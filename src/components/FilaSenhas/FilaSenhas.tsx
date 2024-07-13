@@ -14,14 +14,9 @@ interface FilaSenhasProps {
   onRemoverUltimaSenhaChamada?: () => void;
 }
 
-const FilaSenhas: React.FC<FilaSenhasProps> = React.memo(({ titulo, senhas, ultimaSenhaChamada, onRemoverUltimaSenhaChamada }) => {
-  const sortedSenhas = React.useMemo(() => {
-    return [...senhas].sort((a, b) => {
-      const aId = parseInt(a.id.split('-')[1], 10) || 0;
-      const bId = parseInt(b.id.split('-')[1], 10) || 0;
-      return bId - aId;
-    });
-  }, [senhas]);
+const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaChamada, onRemoverUltimaSenhaChamada }) => {
+  // Ordena as senhas em ordem decrescente
+  const sortedSenhas = [...senhas].sort((a, b) => parseInt(b.id.split('-')[1]) - parseInt(a.id.split('-')[1]));
 
   return (
     <div className="fila-container">
@@ -34,10 +29,10 @@ const FilaSenhas: React.FC<FilaSenhasProps> = React.memo(({ titulo, senhas, ulti
         ))}
       </ul>
       {ultimaSenhaChamada && onRemoverUltimaSenhaChamada && (
-        <button className="remove-button" onClick={onRemoverUltimaSenhaChamada} aria-label="Remover Última Senha Chamada">Remover Última Senha Chamada</button>
+        <button className="remove-button" onClick={onRemoverUltimaSenhaChamada}>Remover Última Senha Chamada</button>
       )}
     </div>
   );
-});
+};
 
 export default FilaSenhas;

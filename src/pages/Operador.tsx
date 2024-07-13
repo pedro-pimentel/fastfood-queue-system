@@ -76,11 +76,11 @@ const Operador: React.FC = () => {
     }
 
     if (tipo === 'salao') {
-      setSenhasSalao((prevSenhas) => [...prevSenhas, novaSenha]);
+      setSenhasSalao((prevSenhas) => [novaSenha, ...prevSenhas]);
       setUltimaSenhaChamadaSalao(novaSenha.id);
       localStorage.setItem('ultimaSenhaChamadaSalao', novaSenha.id);
     } else {
-      setSenhasRetirada((prevSenhas) => [...prevSenhas, novaSenha]);
+      setSenhasRetirada((prevSenhas) => [novaSenha, ...prevSenhas]);
       setUltimaSenhaChamadaRetirada(novaSenha.id);
       localStorage.setItem('ultimaSenhaChamadaRetirada', novaSenha.id);
     }

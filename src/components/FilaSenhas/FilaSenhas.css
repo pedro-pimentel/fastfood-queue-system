@@ -2,35 +2,8 @@
   padding: 10px;
   border-radius: 3px;
   width: 45%;
-  background:#FDBF1E;
+  background: #FDBF1E;
   text-align: center;
-  
-}
-
-.formulario-senha {
-  margin: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  width: 54%;
-  background: #fff;
-  text-align: center;
-}
-
-.formulario-senha label{
-  margin: 25px 15px 25px 25px;
-  font-size: 25px;
-}
-
-.formulario-senha select{
-  margin: 25px 25px 25px 10px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.formulario-senha button{
-  margin: 25px 25px 25px 10px;
-  font-size: 20px;
-  cursor: pointer;
 }
 
 .fila-container h2 {
@@ -45,17 +18,12 @@
 .fila-container li {
   margin: 5px 0;
   padding: 10px;
-  /* border: 1px solid #ddd; */
   border-radius: 5px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease;
 }
-
-/* .senha.aguardando {
-  background-color: #f0f0f0;
-} */
 
 .senha.chamada {
   background-color: #f3558f99;
@@ -78,4 +46,30 @@
 
 .remove-button:hover {
   background-color: #c82333;
+}
+
+.formulario-senha {
+  margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 54%;
+  background: #fff;
+  text-align: center;
+}
+
+.formulario-senha label {
+  margin: 25px 15px 25px 25px;
+  font-size: 25px;
+}
+
+.formulario-senha select {
+  margin: 25px 25px 25px 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.formulario-senha button {
+  margin: 25px 25px 25px 10px;
+  font-size: 20px;
+  cursor: pointer;
 }

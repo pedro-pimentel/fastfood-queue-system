@@ -13,7 +13,7 @@ const FormularioSenha: React.FC<FormularioSenhaProps> = ({ onAddSenha }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onAddSenha(tipo, senhaPersonalizada);
+    onAddSenha(tipo, senhaPersonalizada || undefined);
     setSenhaPersonalizada('');
   };
 
