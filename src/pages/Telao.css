@@ -11,6 +11,10 @@
   max-width: 800px;
 }
 
+.painel-senhas span{
+  font-size: 25px;
+}
+
 .audio-permission {
   position: fixed;
   top: 50%;
