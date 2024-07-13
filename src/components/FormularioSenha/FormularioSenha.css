@@ -1,17 +1,28 @@
 .formulario-senha {
-    margin: 20px 0;
-  }
-  
-  .formulario-senha label {
-    margin-right: 10px;
-  }
-  
-  .formulario-senha select {
-    margin-right: 10px;
-  }
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 60%;
+  background: #fff;
+  text-align: center;
+  padding:20px;
+}
 
-  .formulario-senha label input{
-    margin: 25px 25px 25px 0px;
-    font-size: 20px;
-  }
-  
+.formulario-senha label {
+  /* margin: 20px; */
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.formulario-senha select {
+  /* margin: 20px; */
+  margin-bottom: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.formulario-senha button {
+  /* margin: 20px; */
+  margin-bottom: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}

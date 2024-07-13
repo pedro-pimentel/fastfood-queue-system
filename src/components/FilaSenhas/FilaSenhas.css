@@ -4,6 +4,7 @@
   width: 45%;
   background: #FDBF1E;
   text-align: center;
+  margin: 15px;
 }
 
 .fila-container h2 {
@@ -46,30 +47,4 @@
 
 .remove-button:hover {
   background-color: #c82333;
-}
-
-.formulario-senha {
-  /* margin: 10px; */
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  width: 54%;
-  background: #fff;
-  text-align: center;
-}
-
-.formulario-senha label {
-  margin: 20px 10px 20px 20px;
-  font-size: 25px;
-}
-
-.formulario-senha select {
-  margin: 20px 10px 20px 20px;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.formulario-senha button {
-  margin: 20px 10px 20px 20px;
-  font-size: 20px;
-  cursor: pointer;
 }

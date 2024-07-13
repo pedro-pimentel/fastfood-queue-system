@@ -12,7 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('/public/Xbom background.png');
-  background-repeat: repeat-y;
+  background-repeat: repeat;
   background-size: 1557px;
   border: none;
   padding: -10;
