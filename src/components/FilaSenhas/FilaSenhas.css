@@ -49,7 +49,7 @@
 }
 
 .formulario-senha {
-  margin: 10px;
+  /* margin: 10px; */
   border: 1px solid #ddd;
   border-radius: 5px;
   width: 54%;
@@ -58,18 +58,18 @@
 }
 
 .formulario-senha label {
-  margin: 25px 15px 25px 25px;
+  margin: 20px 10px 20px 20px;
   font-size: 25px;
 }
 
 .formulario-senha select {
-  margin: 25px 25px 25px 10px;
+  margin: 20px 10px 20px 20px;
   font-size: 20px;
   cursor: pointer;
 }
 
 .formulario-senha button {
-  margin: 25px 25px 25px 10px;
+  margin: 20px 10px 20px 20px;
   font-size: 20px;
   cursor: pointer;
 }
