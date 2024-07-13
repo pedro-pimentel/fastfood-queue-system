@@ -72,6 +72,11 @@ const Operador: React.FC = () => {
     localStorage.setItem('senhasRemovidasPreferencial', JSON.stringify(senhasRemovidasPreferencial));
   }, [senhasSalao, senhasRetirada, senhasPreferencial, senhasRemovidasSalao, senhasRemovidasRetirada, senhasRemovidasPreferencial]);
 
+  const playSound = () => {
+    const audio = new Audio(process.env.PUBLIC_URL + '/mixkit-home-standard-ding-dong-109.wav');
+    audio.play();
+  };
+
   const addSenha = useCallback((tipo: AtendimentoTipo, senhaPersonalizada?: string) => {
     let novaSenha: Senha;
     if (senhaPersonalizada) {
@@ -112,6 +117,8 @@ const Operador: React.FC = () => {
       setUltimaSenhaChamadaPreferencial(novaSenha.id);
       localStorage.setItem('ultimaSenhaChamadaPreferencial', novaSenha.id);
     }
+
+    playSound();  // Toca o som toda vez que uma nova senha é adicionada
   }, [contadorSalao, contadorRetirada, contadorPreferencial, senhasRemovidasSalao, senhasRemovidasRetirada, senhasRemovidasPreferencial]);
 
   const removerUltimaSenhaChamada = useCallback((tipo: AtendimentoTipo) => {
@@ -135,6 +142,20 @@ const Operador: React.FC = () => {
       if (senhaRemovida) setSenhasRemovidasPreferencial((prevSenhasRemovidas) => [...prevSenhasRemovidas, senhaRemovida]);
     }
   }, [ultimaSenhaChamadaSalao, ultimaSenhaChamadaRetirada, ultimaSenhaChamadaPreferencial, senhasSalao, senhasRetirada, senhasPreferencial]);
+
+  const rechamarSenha = (senha: Senha) => {
+    if (senha.id.startsWith('S')) {
+      setUltimaSenhaChamadaSalao(senha.id);
+      localStorage.setItem('ultimaSenhaChamadaSalao', senha.id);
+    } else if (senha.id.startsWith('R')) {
+      setUltimaSenhaChamadaRetirada(senha.id);
+      localStorage.setItem('ultimaSenhaChamadaRetirada', senha.id);
+    } else if (senha.id.startsWith('P')) {
+      setUltimaSenhaChamadaPreferencial(senha.id);
+      localStorage.setItem('ultimaSenhaChamadaPreferencial', senha.id);
+    }
+    // playSound();
+  };
 
   const resetarFilas = useCallback(() => {
     setSenhasSalao([]);
@@ -162,9 +183,27 @@ const Operador: React.FC = () => {
       <FormularioSenha onAddSenha={addSenha} />
       <button className="reset-button" onClick={resetarFilas}>Resetar Filas</button>
       <div className="painel-senhas">
-        <FilaSenhas titulo="Pedidos Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('salao')} />
-        <FilaSenhas titulo="Pedidos Online" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('retirada')} />
-        <FilaSenhas titulo="Pedidos Preferencial" senhas={senhasPreferencial} ultimaSenhaChamada={ultimaSenhaChamadaPreferencial} onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('preferencial')} />
+        <FilaSenhas 
+          titulo="Pedidos Salão" 
+          senhas={senhasSalao} 
+          ultimaSenhaChamada={ultimaSenhaChamadaSalao} 
+          onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('salao')} 
+          onRechamarSenha={rechamarSenha} // Passar a função de rechamar senha
+        />
+        <FilaSenhas 
+          titulo="Pedidos Online" 
+          senhas={senhasRetirada} 
+          ultimaSenhaChamada={ultimaSenhaChamadaRetirada} 
+          onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('retirada')} 
+          onRechamarSenha={rechamarSenha} // Passar a função de rechamar senha
+        />
+        <FilaSenhas 
+          titulo="Pedidos Preferencial" 
+          senhas={senhasPreferencial} 
+          ultimaSenhaChamada={ultimaSenhaChamadaPreferencial} 
+          onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('preferencial')} 
+          onRechamarSenha={rechamarSenha} // Passar a função de rechamar senha
+        />
       </div>
     </div>
   );

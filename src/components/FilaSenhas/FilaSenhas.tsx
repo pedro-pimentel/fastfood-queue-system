@@ -13,9 +13,10 @@ interface FilaSenhasProps {
   senhas: Senha[];
   ultimaSenhaChamada: string | null;
   onRemoverUltimaSenhaChamada?: () => void;
+  onRechamarSenha?: (senha: Senha) => void; // Nova prop para rechamar senha
 }
 
-const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaChamada, onRemoverUltimaSenhaChamada }) => {
+const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaChamada, onRemoverUltimaSenhaChamada, onRechamarSenha }) => {
   // Ordena as senhas em ordem decrescente
   const sortedSenhas = [...senhas].sort((a, b) => parseInt(b.id.split('-')[1]) - parseInt(a.id.split('-')[1]));
 
@@ -38,6 +39,9 @@ const FilaSenhas: React.FC<FilaSenhasProps> = ({ titulo, senhas, ultimaSenhaCham
                       <span>{senha.numero}</span>
                     </p>
                   </div>
+                  {onRechamarSenha && (
+                    <button className="rechamar-button" onClick={() => onRechamarSenha(senha)}>Rechamar</button>
+                  )}
                 </div>
               </li>
             ))}
