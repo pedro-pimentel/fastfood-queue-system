@@ -15,6 +15,7 @@ const Telao: React.FC = () => {
   const [ultimaSenhaChamadaSalao, setUltimaSenhaChamadaSalao] = useState<string | null>(null);
   const [ultimaSenhaChamadaRetirada, setUltimaSenhaChamadaRetirada] = useState<string | null>(null);
   const [ultimaSenhaChamadaPreferencial, setUltimaSenhaChamadaPreferencial] = useState<string | null>(null);
+  const [audioAllowed, setAudioAllowed] = useState<boolean>(false);
 
   useEffect(() => {
     const updateStateFromLocalStorage = () => {
@@ -48,12 +49,30 @@ const Telao: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (audioAllowed && (ultimaSenhaChamadaSalao || ultimaSenhaChamadaRetirada || ultimaSenhaChamadaPreferencial)) {
+      const audio = new Audio(process.env.PUBLIC_URL + '/mixkit-home-standard-ding-dong-109.wav');
+      audio.play();
+    }
+  }, [audioAllowed, ultimaSenhaChamadaSalao, ultimaSenhaChamadaRetirada, ultimaSenhaChamadaPreferencial]);
+
+  const handleAudioPermission = () => {
+    setAudioAllowed(true);
+  };
+
   return (
     <div className="telao-container">
+      {!audioAllowed && (
+        <div className="audio-permission">
+          <button onClick={handleAudioPermission} className="audio-permission-button">
+            Allow Audio
+          </button>
+        </div>
+      )}
       <div className="painel-senhas">
-        <FilaSenhas titulo="Pedidos Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} />
-        <FilaSenhas titulo="Pedidos Online" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} />
-        <FilaSenhas titulo="Pedidos Preferencial" senhas={senhasPreferencial} ultimaSenhaChamada={ultimaSenhaChamadaPreferencial} />
+        <FilaSenhas titulo="Fila Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} />
+        <FilaSenhas titulo="Fila Retirada" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} />
+        <FilaSenhas titulo="Fila Preferencial" senhas={senhasPreferencial} ultimaSenhaChamada={ultimaSenhaChamadaPreferencial} />
       </div>
     </div>
   );
