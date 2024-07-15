@@ -118,7 +118,7 @@ const Operador: React.FC = () => {
       localStorage.setItem('ultimaSenhaChamadaPreferencial', novaSenha.id);
     }
 
-    playSound();  // Toca o som toda vez que uma nova senha é adicionada
+    // playSound();  // Toca o som toda vez que uma nova senha é adicionada
   }, [contadorSalao, contadorRetirada, contadorPreferencial, senhasRemovidasSalao, senhasRemovidasRetirada, senhasRemovidasPreferencial]);
 
   const removerUltimaSenhaChamada = useCallback((tipo: AtendimentoTipo) => {
