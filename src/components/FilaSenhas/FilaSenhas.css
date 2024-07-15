@@ -33,10 +33,21 @@
 .senha.destaque {
   background-color: #17b978;
   font-weight: bold;
+  height: 130px;
+  padding: 0px;
+}
+
+.senha.destaque span{
+  font-size: 50px;
+}
+
+.senha.destaque img{
+  width: 60px;
+  height: 60px;
+  margin-bottom: 16px;
 }
 
 .remove-button {
-  margin-top: 10px;
   padding: 5px 10px;
   background-color: #dc3545;
   /* color: white; */

@@ -118,30 +118,21 @@ const Operador: React.FC = () => {
       localStorage.setItem('ultimaSenhaChamadaPreferencial', novaSenha.id);
     }
 
-    // playSound();  // Toca o som toda vez que uma nova senha é adicionada
+    playSound();  // Toca o som toda vez que uma nova senha é adicionada
   }, [contadorSalao, contadorRetirada, contadorPreferencial, senhasRemovidasSalao, senhasRemovidasRetirada, senhasRemovidasPreferencial]);
 
-  const removerUltimaSenhaChamada = useCallback((tipo: AtendimentoTipo) => {
-    if (tipo === 'salao' && ultimaSenhaChamadaSalao) {
-      const senhaRemovida = senhasSalao.find(senha => senha.id === ultimaSenhaChamadaSalao);
-      setSenhasSalao((prevSenhas) => prevSenhas.filter(senha => senha.id !== ultimaSenhaChamadaSalao));
-      setUltimaSenhaChamadaSalao(null);
-      localStorage.removeItem('ultimaSenhaChamadaSalao');
-      if (senhaRemovida) setSenhasRemovidasSalao((prevSenhasRemovidas) => [...prevSenhasRemovidas, senhaRemovida]);
-    } else if (tipo === 'retirada' && ultimaSenhaChamadaRetirada) {
-      const senhaRemovida = senhasRetirada.find(senha => senha.id === ultimaSenhaChamadaRetirada);
-      setSenhasRetirada((prevSenhas) => prevSenhas.filter(senha => senha.id !== ultimaSenhaChamadaRetirada));
-      setUltimaSenhaChamadaRetirada(null);
-      localStorage.removeItem('ultimaSenhaChamadaRetirada');
-      if (senhaRemovida) setSenhasRemovidasRetirada((prevSenhasRemovidas) => [...prevSenhasRemovidas, senhaRemovida]);
-    } else if (tipo === 'preferencial' && ultimaSenhaChamadaPreferencial) {
-      const senhaRemovida = senhasPreferencial.find(senha => senha.id === ultimaSenhaChamadaPreferencial);
-      setSenhasPreferencial((prevSenhas) => prevSenhas.filter(senha => senha.id !== ultimaSenhaChamadaPreferencial));
-      setUltimaSenhaChamadaPreferencial(null);
-      localStorage.removeItem('ultimaSenhaChamadaPreferencial');
-      if (senhaRemovida) setSenhasRemovidasPreferencial((prevSenhasRemovidas) => [...prevSenhasRemovidas, senhaRemovida]);
+  const removerSenha = useCallback((senha: Senha) => {
+    if (senha.id.startsWith('S')) {
+      setSenhasSalao((prevSenhas) => prevSenhas.filter(s => s.id !== senha.id));
+      setSenhasRemovidasSalao((prevSenhasRemovidas) => [...prevSenhasRemovidas, senha]);
+    } else if (senha.id.startsWith('R')) {
+      setSenhasRetirada((prevSenhas) => prevSenhas.filter(s => s.id !== senha.id));
+      setSenhasRemovidasRetirada((prevSenhasRemovidas) => [...prevSenhasRemovidas, senha]);
+    } else if (senha.id.startsWith('P')) {
+      setSenhasPreferencial((prevSenhas) => prevSenhas.filter(s => s.id !== senha.id));
+      setSenhasRemovidasPreferencial((prevSenhasRemovidas) => [...prevSenhasRemovidas, senha]);
     }
-  }, [ultimaSenhaChamadaSalao, ultimaSenhaChamadaRetirada, ultimaSenhaChamadaPreferencial, senhasSalao, senhasRetirada, senhasPreferencial]);
+  }, []);
 
   const rechamarSenha = (senha: Senha) => {
     if (senha.id.startsWith('S')) {
@@ -154,7 +145,7 @@ const Operador: React.FC = () => {
       setUltimaSenhaChamadaPreferencial(senha.id);
       localStorage.setItem('ultimaSenhaChamadaPreferencial', senha.id);
     }
-    // playSound();
+    playSound();
   };
 
   const resetarFilas = useCallback(() => {
@@ -187,22 +178,22 @@ const Operador: React.FC = () => {
           titulo="Pedidos Salão" 
           senhas={senhasSalao} 
           ultimaSenhaChamada={ultimaSenhaChamadaSalao} 
-          onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('salao')} 
           onRechamarSenha={rechamarSenha} // Passar a função de rechamar senha
+          onRemoverSenha={removerSenha} // Passar a função de remover senha específica
         />
         <FilaSenhas 
           titulo="Pedidos Online" 
           senhas={senhasRetirada} 
           ultimaSenhaChamada={ultimaSenhaChamadaRetirada} 
-          onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('retirada')} 
           onRechamarSenha={rechamarSenha} // Passar a função de rechamar senha
+          onRemoverSenha={removerSenha} // Passar a função de remover senha específica
         />
         <FilaSenhas 
           titulo="Pedidos Preferencial" 
           senhas={senhasPreferencial} 
           ultimaSenhaChamada={ultimaSenhaChamadaPreferencial} 
-          onRemoverUltimaSenhaChamada={() => removerUltimaSenhaChamada('preferencial')} 
           onRechamarSenha={rechamarSenha} // Passar a função de rechamar senha
+          onRemoverSenha={removerSenha} // Passar a função de remover senha específica
         />
       </div>
     </div>
