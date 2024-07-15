@@ -70,9 +70,9 @@ const Telao: React.FC = () => {
         </div>
       )}
       <div className="painel-senhas">
-        <FilaSenhas titulo="Fila Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} />
-        <FilaSenhas titulo="Fila Retirada" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} />
-        <FilaSenhas titulo="Fila Preferencial" senhas={senhasPreferencial} ultimaSenhaChamada={ultimaSenhaChamadaPreferencial} />
+        <FilaSenhas titulo="Pedidos Salão" senhas={senhasSalao} ultimaSenhaChamada={ultimaSenhaChamadaSalao} />
+        <FilaSenhas titulo="Pedidos Online" senhas={senhasRetirada} ultimaSenhaChamada={ultimaSenhaChamadaRetirada} />
+        <FilaSenhas titulo="Pedidos Preferenciais" senhas={senhasPreferencial} ultimaSenhaChamada={ultimaSenhaChamadaPreferencial} />
       </div>
     </div>
   );
