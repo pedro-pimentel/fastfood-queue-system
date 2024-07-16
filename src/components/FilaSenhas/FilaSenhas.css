@@ -21,6 +21,7 @@
   padding: 10px;
   border-radius: 5px;
   display: flex;
+  flex-direction: column; /* Alinhar itens em coluna */
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease;
@@ -33,24 +34,22 @@
 .senha.destaque {
   background-color: #17b978;
   font-weight: bold;
-  height: 130px;
-  padding: 0px;
 }
 
-.senha.destaque span{
-  font-size: 50px;
+.senha.destaque span {
+  font-size: 70px; /* Aumentado o tamanho da fonte */
 }
 
-.senha.destaque img{
-  width: 60px;
-  height: 60px;
-  margin-bottom: 16px;
+.senha.destaque img {
+  width: 80px; /* Aumentado o tamanho da imagem */
+  height: 80px; /* Aumentado o tamanho da imagem */
+  margin-bottom: 8px;
 }
 
 .remove-button {
   padding: 5px 10px;
   background-color: #dc3545;
-  /* color: white; */
+  color: white;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -61,10 +60,9 @@
 }
 
 .rechamar-button {
-  margin-left: 10px;
   padding: 5px 10px;
   background-color: #007bff;
-  /* color: white; */
+  color: white;
   border: none;
   border-radius: 3px;
   cursor: pointer;
