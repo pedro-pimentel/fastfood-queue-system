@@ -118,7 +118,7 @@ const Operador: React.FC = () => {
       localStorage.setItem('ultimaSenhaChamadaPreferencial', novaSenha.id);
     }
 
-    playSound();  // Toca o som toda vez que uma nova senha é adicionada
+    // playSound();
   }, [contadorSalao, contadorRetirada, contadorPreferencial, senhasRemovidasSalao, senhasRemovidasRetirada, senhasRemovidasPreferencial]);
 
   const removerSenha = useCallback((senha: Senha) => {
@@ -145,7 +145,7 @@ const Operador: React.FC = () => {
       setUltimaSenhaChamadaPreferencial(senha.id);
       localStorage.setItem('ultimaSenhaChamadaPreferencial', senha.id);
     }
-    playSound();
+    // playSound();
   };
 
   const resetarFilas = useCallback(() => {
