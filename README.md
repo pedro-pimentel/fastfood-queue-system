@@ -33,3 +33,46 @@ Este é um sistema de filas de senhas desenvolvido para gerenciar e organizar o 
       npm start
 4. **Acesse o Sistema**
    Abra o navegador e acesse http://localhost:3000
+
+## Como Usar
+
+### Adicionar Senha
+
+1. Selecione o tipo de atendimento (Salão, Retirada ou Preferencial).
+2. Digite a senha (opcional).
+3. Clique em "Adicionar Senha".
+
+### Remover Senha
+
+1. Clique no botão "Remover" ao lado da senha que deseja remover.
+
+### Rechamar Senha
+
+1. Clique no botão "Rechamar" ao lado da senha que deseja rechamar.
+
+### Resetar Filas
+
+1. Clique no botão "Resetar Filas" para limpar todas as filas de senhas.
+
+## Contribuição
+
+1. Faça um Fork do projeto.
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas alterações (`git commit -am 'Adiciona nova feature'`).
+4. Faça um push para a branch (`git push origin feature/nova-feature`).
+5. Abra um Pull Request.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Contato
+
+- **Nome**: Pedro
+- **Email**: pedropaulosv1@gmail.com
+- **LinkedIn**: [LinkedIn]([https://www.linkedin.com/in/seu-perfil](https://www.linkedin.com/in/pedro-pimentel-625b5585/))
+
+---
+
+Feito com ❤️ por [Pedro](https://github.com/pedro-pimentel)
+
