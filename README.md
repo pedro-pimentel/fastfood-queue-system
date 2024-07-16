@@ -25,5 +25,11 @@ Este é um sistema de filas de senhas desenvolvido para gerenciar e organizar o 
    ```bash
    git clone https://github.com/seu-usuario/fastfood-queue-system.git
    cd fastfood-queue-system
-npm install
-npm start
+2. **Instale as dependências**
+   ```bash
+      npm install
+3. **Inicie o Servidor de Desenvolvimento**
+   ```bash
+      npm start
+4. **Acesse o Sistema**
+   Abra o navegador e acesse http://localhost:3000
