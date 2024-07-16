@@ -70,7 +70,7 @@ Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICEN
 
 - **Nome**: Pedro
 - **Email**: pedropaulosv1@gmail.com
-- **LinkedIn**: [LinkedIn]([https://www.linkedin.com/in/seu-perfil](https://www.linkedin.com/in/pedro-pimentel-625b5585/))
+- **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/pedro-pimentel-625b5585/)
 
 ---
 
