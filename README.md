@@ -19,38 +19,6 @@ Este é um sistema de filas de senhas desenvolvido para gerenciar e organizar o 
 - **Flowbite**: Biblioteca de componentes UI baseada no Tailwind CSS.
 - **React Toastify**: Biblioteca para notificações.
 
-## Estrutura do Projeto
-
-fastfood-queue-system/
-├── public/
-│ ├── fonts/
-│ │ └── Bipplo-Black.ttf
-│ ├── mixkit-home-standard-ding-dong-109.wav
-│ ├── LOGO_X-BOM.png
-│ ├── favicon.ico
-│ └── index.html
-├── src/
-│ ├── components/
-│ │ ├── FilaSenhas/
-│ │ │ ├── FilaSenhas.css
-│ │ │ └── FilaSenhas.tsx
-│ │ └── FormularioSenha/
-│ │ ├── FormularioSenha.css
-│ │ └── FormularioSenha.tsx
-│ ├── pages/
-│ │ ├── Operador.tsx
-│ │ ├── Operador.css
-│ │ ├── Telao.tsx
-│ │ └── Telao.css
-│ ├── App.tsx
-│ ├── App.css
-│ ├── index.tsx
-│ ├── index.css
-│ └── ...
-├── package.json
-└── README.md
-
-
 ## Como Executar
 
 1. **Clone o Repositório**
