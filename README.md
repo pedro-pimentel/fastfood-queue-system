@@ -1,46 +1,78 @@
-# Getting Started with Create React App
+# Sistema de Filas de Senhas para Fast Food
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um sistema de filas de senhas desenvolvido para gerenciar e organizar o atendimento em um ambiente de fast food. O sistema permite adicionar, remover e rechamar senhas, e inclui funcionalidades para senhas preferenciais, notificações sonoras e um histórico de senhas chamadas.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- **Adicionar Senha**: Adicione senhas para atendimento no salão, retirada e preferencial.
+- **Remover Senha**: Remova senhas específicas da fila.
+- **Rechamar Senha**: Rechame senhas específicas para garantir que os clientes não percam sua vez.
+- **Histórico de Senhas**: Visualize o histórico de senhas chamadas.
+- **Notificações Sonoras**: Toque um som cada vez que uma nova senha é chamada.
+- **Senhas Preferenciais**: Gerencie uma fila separada para atendimentos preferenciais.
+- **Resetar Filas**: Resete todas as filas de senhas.
 
-### `npm start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **React**: Biblioteca JavaScript para construir interfaces de usuário.
+- **TypeScript**: Superconjunto de JavaScript que adiciona tipagem estática.
+- **Flowbite**: Biblioteca de componentes UI baseada no Tailwind CSS.
+- **React Toastify**: Biblioteca para notificações.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Como Executar
 
-### `npm test`
+1. **Clone o Repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/fastfood-queue-system.git
+   cd fastfood-queue-system
+2. **Instale as dependências**
+   ```bash
+      npm install
+3. **Inicie o Servidor de Desenvolvimento**
+   ```bash
+      npm start
+4. **Acesse o Sistema**
+   Abra o navegador e acesse http://localhost:3000
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como Usar
 
-### `npm run build`
+### Adicionar Senha
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Selecione o tipo de atendimento (Salão, Retirada ou Preferencial).
+2. Digite a senha (opcional).
+3. Clique em "Adicionar Senha".
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Remover Senha
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clique no botão "Remover" ao lado da senha que deseja remover.
 
-### `npm run eject`
+### Rechamar Senha
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Clique no botão "Rechamar" ao lado da senha que deseja rechamar.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Resetar Filas
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clique no botão "Resetar Filas" para limpar todas as filas de senhas.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contribuição
 
-## Learn More
+1. Faça um Fork do projeto.
+2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`).
+3. Commit suas alterações (`git commit -am 'Adiciona nova feature'`).
+4. Faça um push para a branch (`git push origin feature/nova-feature`).
+5. Abra um Pull Request.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Licença
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+## Contato
+
+- **Nome**: Pedro
+- **Email**: pedropaulosv1@gmail.com
+- **LinkedIn**: [LinkedIn](https://www.linkedin.com/in/pedro-pimentel-625b5585/)
+
+---
+
+Feito com ❤️ por [Pedro](https://github.com/pedro-pimentel)
+
