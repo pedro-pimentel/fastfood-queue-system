@@ -15,6 +15,10 @@
   font-size: 25px;
 }
 
+.painel-senhas h5{
+  font-size: 43px;
+}
+
 .audio-permission {
   position: fixed;
   top: 50%;
