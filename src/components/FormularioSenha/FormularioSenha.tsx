@@ -27,8 +27,8 @@ const FormularioSenha: React.FC<FormularioSenhaProps> = ({ onAddSenha }) => {
         value={tipo}
         onChange={(e) => setTipo(e.target.value as AtendimentoTipo)}
       >
-        <option value="salao">Salão</option>
-        <option value="retirada">Online</option>
+        <option value="salao">Ficha</option>
+        <option value="retirada">Retirada</option>
         <option value="preferencial">Preferencial</option>
       </select>
       <div className="mb-5">

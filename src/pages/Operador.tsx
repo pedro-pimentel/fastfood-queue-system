@@ -91,7 +91,7 @@ const Operador: React.FC = () => {
       if (senhasRemovidasSalao.length > 0) {
         novaSenha = senhasRemovidasSalao.pop()!;
       } else {
-        novaSenha = { id: `S-${contadorSalao}`, numero: `S-${contadorSalao}`, status: 'chamada' };
+        novaSenha = { id: `F-${contadorSalao}`, numero: `F-${contadorSalao}`, status: 'chamada' };
         setContadorSalao((prevContador) => prevContador + 1);
       }
     } else if (tipo === 'retirada') {
@@ -202,21 +202,21 @@ const Operador: React.FC = () => {
       <button className="reset-button" onClick={resetarFilas}>Resetar Filas</button>
       <div className="painel-senhas">
         <FilaSenhas 
-          titulo="Pedidos Salão" 
+          titulo="Ficha" 
           senhas={senhasSalao} 
           ultimaSenhaChamada={ultimaSenhaChamadaSalao} 
           onRechamarSenha={rechamarSenha} 
           onRemoverSenha={removerSenha} 
         />
         <FilaSenhas 
-          titulo="Pedidos Online" 
+          titulo="Retirada" 
           senhas={senhasRetirada} 
           ultimaSenhaChamada={ultimaSenhaChamadaRetirada} 
           onRechamarSenha={rechamarSenha} 
           onRemoverSenha={removerSenha} 
         />
         <FilaSenhas 
-          titulo="Pedidos Preferencial" 
+          titulo="Preferencial" 
           senhas={senhasPreferencial} 
           ultimaSenhaChamada={ultimaSenhaChamadaPreferencial} 
           onRechamarSenha={rechamarSenha} 
